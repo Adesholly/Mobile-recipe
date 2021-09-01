@@ -1,8 +1,12 @@
-const meals = document.getElementById('meals');
-const favContainer = document.getElementById('fav-meals') ;
+const mealsElement = document.getElementById('meals');
+const favContainer = document.getElementById('fav-meals');
+
+const searchTerm = document.getElementById('search-term');
+const searchBtn  = document.getElementById('search');
+
 getRandomMeal(); 
 fetchFavMeals();
-addMealToFav();
+
 
 async function getRandomMeal() {
     const fetchData = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
@@ -27,14 +31,15 @@ async function getMealById(id) {
 }
 
 async function getMealBySearch(term) {
-    const response= await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata' + term)
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + term);
     
     const responseData = await response.json();
 
-    const meals = responseData.meals
-
+    const meals = responseData.meals;
+    
     return meals;
 
+    
 
 } 
 
@@ -117,19 +122,17 @@ async function fetchFavMeals(){
         addMealToFav(meal);
 
     }
-    console.log(meals);
 
-    // add to the screen
 }
 
 
 function addMealToFav(mealData){
     const favMeal = document.createElement("li");
-    
 
     favMeal.innerHTML = `
-    <img src="${mealData.strMealThumb}" 
-    alt="${mealData.Meal}">
+    <img 
+    src="${mealData.strMealThumb}" 
+    alt="${mealData.Meal}"/>
     <span>${mealData.strMeal}</span>
     <button class="clear">
         <i class="fas fa-window-close"></i>
@@ -146,6 +149,23 @@ function addMealToFav(mealData){
     });
 
     favContainer.appendChild(favMeal);
- 
 }
 
+searchBtn.addEventListener('click', async () => {
+     
+    mealsElement.innerHTML = '';
+    const search = searchTerm.value;
+    const meals = await getMealBySearch(search);
+
+    if(meals == null){
+        alert('Not Found');
+        
+    }else {
+        meals.forEach((meal)=> {
+            addMeal(meal);
+
+            });
+        }
+    
+
+});
