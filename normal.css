@@ -29,8 +29,6 @@ img{
     width: 450px;
     border-radius: 5px;
     overflow: hidden;
-
-
    
 }
 
@@ -40,7 +38,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 header input{
@@ -49,7 +47,8 @@ header input{
     border: none;
     padding: 0.5rem 1rem;
     font-family: inherit;
-    margin-left: 10rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 
 }
 header button{
@@ -57,7 +56,7 @@ header button{
     border: none;
     color: rgb(221, 216, 216);
     font-size: 1.5rem;
-    margin-left: 1rem;
+    margin-left: -1rem;
     cursor: pointer;
 }
 header a{
@@ -111,6 +110,7 @@ header a{
     height: 90px;
     width: 110px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .fav-meals li span{
@@ -120,11 +120,14 @@ header a{
 .meal{
     box-shadow: 0 0 2px 3px #3333331A;
     border-radius: 5px;
-    margin: 2rem;
-
+    margin:1.5rem 1.5rem;
+    
+    
 }
 .meal-header{
     position: relative;
+    font-size: 15px;
+    font-weight: bold;
 
 }
 .meal-header .random{
@@ -140,16 +143,19 @@ header a{
     object-fit: cover;
     height: 350px;
     width: 100%;
+    cursor: pointer;
 
 }
 .meal-body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 5px;
 }
 
-.meal-body h4{
+.meal-body h3{
     margin: 0;
+
 }
 
 .meal-body .fav-btn{
@@ -164,3 +170,57 @@ header a{
 .meal-body .fav-btn.active{
     color: rgb(236, 167, 190);
 }
+
+.meal-infoContainer{
+    background-color: rgb(0, 0, 0, 0.4);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0; 
+    top: 0;
+    bottom: 0;
+
+
+}
+
+.meal-infoContainer.hidden{
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+.meal-info{
+    background-color: #fff;
+    max-width: 600px;
+    width: 100%;
+    padding: 0 2rem;
+    border-radius: 5px;
+    position: relative;
+    max-height: 100vh;
+    overflow: auto;
+    
+}
+.meal-info .close{
+    position: absolute;
+    border: none;
+    color: rgb(235, 114, 114);
+    background-color: transparent;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+
+}
+.meal-infoDisplay h1{
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.meal-infoDisplay img{
+    border: 10px solid #ffffff;
+    box-shadow: 0 0 2px 3px #3333331A;
+    border-radius: 50%;
+}
+

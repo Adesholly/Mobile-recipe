@@ -12,8 +12,8 @@
     <div class="mobile-layout">
        
         <header>
-            <a href="javascript:void(0);" class="icon" onclick="">
-                <i class="fa fa-bars"></i>
+            <a href="index.html" class="icon" onclick="">
+                <i class="fa fa-sync-alt"></i>
               </a>
             <input type="text" id="search-term"><button id="search">
                 <i class="fas fa-search"></i></button>
@@ -27,6 +27,19 @@
         <div class="meals" id="meals">      
             
         </div>
+         
     </div>
+    <div class="meal-infoContainer hidden" id="meal-popup">
+        <div class="meal-info" id="meal-info">
+            <div>
+                <button class="close" id="meal-close"> 
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="meal-infoDisplay" id="meal-infoDisplay">
+                    
+                </div>               
+            </div>              
+        </div>
+    </div>  
 </body>
 </html>
